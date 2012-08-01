@@ -1,4 +1,4 @@
 mobileuw
 ========
 
-for m.uw.edu
+http://m.uw.edu
