@@ -1,0 +1,25 @@
+.hidden {
+        display:none;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #333;
+    margin: 0;
+}
+div.item a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+}
+div.item {
+    border-left: 1px solid #CCC;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #333;
+    border-right: 1px solid #333;
+    margin: 1px;
+}
+label.hidden {
+    display:none;
+}

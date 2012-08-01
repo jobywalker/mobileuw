@@ -1,0 +1,126 @@
+body {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+    background: url('../images/furley_bg_@2X.png'); 
+    padding: 0;  
+}
+
+.springboard-button {
+    width:90%;
+    padding: .75em;
+    margin: .75em;
+    background: #FFFFFF;
+	-webkit-box-shadow: 0 0 2px 2px #CCCCCC;
+    -moz-box-shadow: 0 0 2px 2px #CCCCCC;
+    box-shadow: 0 0 2px 2px #CCCCCC;
+    /*font-size: 4em; */
+    font-weight: bold;
+}
+
+
+.springboard-button .left {
+
+}
+
+.springboard-button .right {
+    
+}
+
+
+.youtube-thumbnail {
+    position: relative; 
+    padding: .5em;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+    background: #FFFFFF;
+    border: 1px #EEEEEE solid;
+    margin: 1em;
+}
+
+h2.overlay-title {
+    position: absolute; 
+    bottom: 1em; 
+    display: inline-block;
+    left: 0; 
+    width: 90%; 
+    background: rgb( 57, 39, 91,); /* fallback color */
+    background: rgba( 57, 39, 91, 0.7);
+    padding: .5em; 
+    overflow: none;
+   line-height: 92%; 
+
+}
+
+h2.overlay-title span { 
+   color: white; 
+   font: bold; 
+   letter-spacing: -1px; 
+}
+
+
+  /* Landscape phones and down */
+  @media (max-width: 480px) { 
+       body {
+        padding: 0 !important;
+    }
+    #springboard-container { 
+        margin: 0 auto 0 auto;
+        width: 90%;
+    }
+    
+    h2.overlay-title span {
+        font-size: .5em;
+    }
+    
+    .springboard-button {
+    width:80%;
+    }
+      
+  }
+ 
+  /* Landscape phone to portrait tablet */
+  @media (max-width: 767px) { ... 
+    body {
+        padding: 0 !important;
+    }
+    #springboard-container { 
+        margin: 0 auto 0 auto;
+        width: 90%;
+    }
+
+    h2.overlay-title span {
+        font-size: .75em;
+    }
+      
+  }
+ 
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 768px) and (max-width: 979px) {
+    body {
+        padding: 0 !important;
+    }
+  
+      #springboard-container { 
+        margin: 0 auto 0 auto;
+        width: 80%;
+    }
+        h2.overlay-title span {
+        font-size: .75em;
+    }
+    
+  }
+ 
+  /* Large desktop */
+  @media (min-width: 1200px) { 
+      #springboard-container { 
+        margin: 0 auto 0 auto;
+        width: 80%;
+    }      
+    h2.overlay-title span {
+        font-size: 1em;
+    }
+    
+  }
+  
+
