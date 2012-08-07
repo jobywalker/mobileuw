@@ -64,12 +64,12 @@ $(document).ready(function(){
 	});
 	
   /** Accessibility **/
-  topnav.css('visibility','hidden').bind('webkitTransitionEnd', function() {
+  topnav.css('visibility','hidden').on('webkitTransitionEnd', function() {
     if ( !topnav.hasClass('activate') && !search.hasClass('activate') || search.hasClass('activate')) {
        topnav.css('visibility','hidden');
     }   
   });
-  search.css('visibility','hidden').bind('webkitTransitionEnd', function() {
+  search.css('visibility','hidden').on('webkitTransitionEnd', function() {
     if ( !topnav.hasClass('activate') && !search.hasClass('activate') || topnav.hasClass('activate')) {
        search.css('visibility','hidden');
     }
