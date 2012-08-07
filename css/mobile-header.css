@@ -181,6 +181,10 @@
 	.formbutton {
 		display: none;
 	}
+	#searchicon,
+	#listicon {
+    	cursor: pointer;
+	}
 
 
 	
