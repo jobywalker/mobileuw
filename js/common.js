@@ -6,7 +6,6 @@ $(window).load(function () {
 $(function () {
 
   $('[href=#]').removeAttr('href'); //prevent ios nav bar from popping down
-
   
   var lip = $('#lip'),
       linkRotator = $('#linkRotator'),
@@ -18,7 +17,6 @@ $(function () {
       closeImage = $('#menuClose'),
       searchbtn = $("#searchicon").wrap('<a id="searchicon-wrapper">').parent(),
       menubtn= $("#listicon").wrap('<a id="listicon-wrapper">').parent();
-
 
 	ul.hide();
 	linkImage.click(function () {
@@ -72,9 +70,7 @@ $(function () {
        search.css('visibility', 'hidden');
     }
   });
-
   
-
 });
 
 
