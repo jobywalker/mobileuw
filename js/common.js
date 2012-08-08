@@ -1,12 +1,9 @@
-$(window).load(function(){
-	var alerty = $('#alertMessage').outerHeight()
+$(window).load(function () {
+	var alerty = $('#alertMessage').outerHeight();
 	$("body").css("background-position", "0 " + alerty + "px" ); 
- 
-  
 });
 
-
-$(document).ready(function(){
+$(function () {
 
   $('[href=#]').removeAttr('href'); //prevent ios nav bar from popping down
 
@@ -18,21 +15,24 @@ $(document).ready(function(){
       topnav = $('#top-nav'),
       search = $('#search form'),
       links = linkImage.attr('src'),
-      closeImage = $('#menuClose');
+      closeImage = $('#menuClose'),
+      searchbtn = $("#searchicon").wrap('<a id="searchicon-wrapper">').parent(),
+      menubtn= $("#listicon").wrap('<a id="listicon-wrapper">').parent();
+
 
 	ul.hide();
-	linkImage.click(function(){
+	linkImage.click(function () {
 	    ul.show();
 		var height = (linkRotator.height() != 0) ? 0 : ul.outerHeight();
-		linkImage.addClass('hideLinkAnchor').one('webkitTransitionEnd', function() {
+		linkImage.addClass('hideLinkAnchor').one('webkitTransitionEnd', function () {
 			  linkRotator.toggleClass('rotateLip').css('height', height);
 		});
 		return false;
 	});
 	
-	closeImage.click(function(){
+	closeImage.click(function () {
 		if (linkRotator.height() != 0){
-			linkRotator.css('height', 0).one('webkitTransitionEnd', function() {				
+			linkRotator.css('height', 0).one('webkitTransitionEnd', function () {				
 				ul.hide();
 				linkImage.removeClass('hideLinkAnchor');
 			});
@@ -41,8 +41,7 @@ $(document).ready(function(){
 	});
 
   // [TODO] clean up
-  var searchbtn = $("#searchicon").wrap('<a id="searchicon-wrapper">').parent();
-	searchbtn.click(function(e){
+	searchbtn.click(function (e){
     e.preventDefault();
 		search.toggleClass("activate");
     search.css('visibility', 'visible');
@@ -52,10 +51,9 @@ $(document).ready(function(){
 		return false;
 	});
 	
-  var menubtn= $("#listicon").wrap('<a id="listicon-wrapper">').parent();
-	menubtn.click(function(e){
+	menubtn.click(function (e){
     e.preventDefault();
-		topnav.toggleClass("activate");		
+		topnav.toggleClass("activate");		 
     topnav.css('visibility', 'visible');
 		if(search.hasClass('activate')){
 			search.toggleClass("activate");		
@@ -64,14 +62,14 @@ $(document).ready(function(){
 	});
 	
   /** Accessibility **/
-  topnav.css('visibility','hidden').on('webkitTransitionEnd', function() {
+  topnav.css('visibility', 'hidden').on('webkitTransitionEnd', function () {
     if ( !topnav.hasClass('activate') && !search.hasClass('activate') || search.hasClass('activate')) {
-       topnav.css('visibility','hidden');
+       topnav.css('visibility', 'hidden');
     }   
   });
-  search.css('visibility','hidden').on('webkitTransitionEnd', function() {
+  search.css('visibility', 'hidden').on('webkitTransitionEnd', function () {
     if ( !topnav.hasClass('activate') && !search.hasClass('activate') || topnav.hasClass('activate')) {
-       search.css('visibility','hidden');
+       search.css('visibility', 'hidden');
     }
   });
 
