@@ -1,6 +1,6 @@
 body {
-   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-   font-weight: 300;
+    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, sans-serif; 
+    font-weight: 300;
     background: url('../images/furley_bg_@2X.png'); 
     padding: 0;  
 }
@@ -16,16 +16,6 @@ body {
     /*font-size: 4em; */
     font-weight: bold;
 }
-
-
-.springboard-button .left {
-
-}
-
-.springboard-button .right {
-    
-}
-
 
 .youtube-thumbnail {
     position: relative; 
@@ -48,8 +38,7 @@ h2.overlay-title {
     background: rgba( 57, 39, 91, 0.7);
     padding: .5em; 
     overflow: none;
-   line-height: 92%; 
-
+    line-height: 92%; 
 }
 
 h2.overlay-title span { 
