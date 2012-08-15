@@ -1,129 +1,434 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Mobile UW</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css">
-  <link rel="stylesheet" href="./css/font-awesome.css">
-  <link rel="stylesheet" href="./css/styles.css">
-  <link rel="stylesheet" href="./css/mobile-header.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+<title>m.UW</title>
+
+<style type="text/css">
+
+* { -webkit-transition: .5s; }
+
+body {
+	margin: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 90%;
+	line-height: 18px;
+	color: #333;
+	background-color: #f6f3ec;
+}
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* ------ Header ------- */
+
+#header {
+	background: url("img/purple-bg.jpg") repeat-x scroll center top white;
+	position: relative;
+	height: 55px; }
+#header a {
+	background: url("img/mobile-sprite-1x.png") no-repeat 0 -629px transparent;
+	display: inline-block;
+	height: 55px;
+	width: 100%; }
+
+/* ------ Search Box ------- */
+
+#search { margin: 5px 0 0; }
+.wfield {
+	-webkit-box-shadow: inset 2px 2px 4px #888;
+	box-shadow: inset 2px 2px 4px #888;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	overflow: hidden;
+	width: 100%;
+	height: 40px;
+	border: none;
+	background: url("img/mobile-sprite-1x.png") no-repeat right -681px white;
+	margin-top: 5px;
+	display: block;
+}
+.wfield input {
+	-webkit-appearance: none;
+    height: 33px;
+    padding: 3px 0 5px 15px;
+    border: none;
+    width: 100%;
+    background: none;
+    font-size: 15px;
+    color: #484848;
+}
+input, button, select, textarea {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	text-align: start;
+}
+.main-search {
+	height: 45px;
+	overflow: hidden;
+	margin: 0 auto;
+	width: 100%;
+	position: relative;
+}
+.hide {
+	display: none;
+}
+input::-webkit-input-placeholder {
+   color: #888;
+   font-weight: lighter;
+}
+input:::-moz-placeholder {  
+   color: #888;
+   font-weight: lighter;
+}
+
+/* ------ Springboard ------- */
+
+#spacing {
+	margin: 0 10px;
+}
+#springboard {
+	position: relative;
+	display: block;
+	width: 100%;
+	margin: 10px 0;
+	padding: 5px 0;
+	box-shadow: 0 0 5px #b1b1b1;
+	-webkit-box-shadow: 0 0 5px #b1b1b1;
+	-moz-box-shadow: 0 0 5px #b1b1b1;	
+	overflow: hidden;
+	background-color: #fff;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px; 
+	background-color: #fff;
+}
+
+#springboard li a {
+	display: block;
+	font-weight: bold;
+	color: #39275B;
+	text-decoration: none;
+	padding: 10px 0 10px 55px;
+	background-image: url('img/mobile-sprite-1x.png');
+	background-repeat: no-repeat;
+	margin: 10px 0 0 15px; }
+#springboard li:after {
+	content: " ";
+	display: block;
+	position: absolute;
+}	
+#springboard li:nth-child(2) a { background-position: 0 -320px; }
+#springboard li:nth-child(3) a { background-position: 0 -62px; }
+#springboard li:nth-child(4) a { background-position: 0 -386px; }
+#springboard li:nth-child(5) a { background-position: 0 -125px; }
+#springboard li:nth-child(6) a { background-position: 0 -454px; }
+#springboard li:nth-child(7) a { background-position: 0 -189px; }
+#springboard li:nth-child(8) a { background-position: 0 -517px; }
+#springboard li:nth-child(9) a { background-position: 0 -252px; }
+#springboard li:nth-child(10) a { background-position: 0 -574px; }
+
+/* =============================================================================
+   High Pixel Density Query
+   ========================================================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), 
+	   only screen and (-o-min-device-pixel-ratio: 3/2), 
+	   only screen and (min--moz-device-pixel-ratio: 1.5), 
+	   only screen and (min-device-pixel-ratio: 1.5) { 		
+		#springboard li a {
+		    background-image: url('img/mobile-sprite-2x.png');
+		    background-size: 285px 720px; }
+		#header a {
+			background: url('img/mobile-sprite-2x.png') no-repeat 0 -629px transparent;
+			background-size: 285px 720px; }
+		.wfield {
+			background: url('img/mobile-sprite-2x.png') no-repeat right -679px white;
+			background-size: 285px 720px; }
+}
+
+@media only screen and (max-width: 479px) {
+	#springboard li:nth-child(even) a {
+	    margin-left: 5px;  }
+	#springboard li {
+		float: left;
+		width: 50%;
+		margin: 0 0 15px; }	
+	 
+	 /* ----- Stripe maker ----- */
+	 
+	 #springboard li:nth-child(1):after {
+		 width: 1px;
+		 height: 100%;
+		 left: 50%;
+		 top: 0;
+		 background: #ffffff; /* Old browsers */
+		 background: -moz-linear-gradient(top,  #ffffff 0%, #eeeeee 20%, #eeeeee 80%, #ffffff 100%); /* FF3.6+ */
+		 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(20%,#eeeeee), color-stop(80%,#eeeeee), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+		 background: -webkit-linear-gradient(top,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+		 background: -o-linear-gradient(top,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Opera 11.10+ */
+		 background: -ms-linear-gradient(top,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* IE10+ */
+		 background: linear-gradient(to bottom,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* W3C */
+		 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */ }		
+	 #springboard li:nth-child(2):after,
+	 #springboard li:nth-child(4):after,
+	 #springboard li:nth-child(6):after,
+	 #springboard li:nth-child(8):after,
+	 #springboard li:nth-child(10):after {
+	    height: 1px;
+	    width: 100%;
+	    top: 68px;
+	    left: 0%;
+	    background: #ffffff; /* Old browsers */
+	    background: -moz-linear-gradient(left,  #ffffff 0%, #eeeeee 20%, #eeeeee 80%, #ffffff 100%); /* FF3.6+ */
+	    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(20%,#eeeeee), color-stop(80%,#eeeeee), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+	    background: -webkit-linear-gradient(left,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+	    background: -o-linear-gradient(left,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Opera 11.10+ */
+	    background: -ms-linear-gradient(left,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* IE10+ */
+	    background: linear-gradient(to right,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* W3C */
+	    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */ }	
+	 #springboard li:nth-child(4):after { top: 130px; }
+	 #springboard li:nth-child(6):after { top: 192px; }
+	 #springboard li:nth-child(8):after { top: 257px; }
+	 #springboard li:nth-child(10):after { top: 320px; } 
+	 #springboard li:last-child:after { display: none } 
+}
+
+@media only screen and (min-width: 480px) and (max-width: 599px) {
+  /* Styles */
+	#springboard li {
+		float: left;
+		width: 33%;
+		margin: 0 0 15px;}
+	#springboard li:nth-child(3n+1) {	
+		clear: both;}
+	#springboard li:nth-child(3n+1) a {
+		margin-left: 15px; }
+		
+	 /* ----- Stripe maker ----- */
+	 
+	 #springboard li:nth-child(4):after,
+	 #springboard li:nth-child(2):after {
+		 width: 1px;
+		 height: 100%;
+		 left: 35%;
+		 top: 0;
+		 background: #ffffff; /* Old browsers */
+		 background: -moz-linear-gradient(top,  #ffffff 0%, #eeeeee 20%, #eeeeee 80%, #ffffff 100%); /* FF3.6+ */
+		 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(20%,#eeeeee), color-stop(80%,#eeeeee), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+		 background: -webkit-linear-gradient(top,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+		 background: -o-linear-gradient(top,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Opera 11.10+ */
+		 background: -ms-linear-gradient(top,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* IE10+ */
+		 background: linear-gradient(to bottom,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* W3C */
+		 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */ }				
+	 #springboard li:nth-child(2):after {
+		 left: 66%;
+	 }
+	 #springboard li:nth-child(1):after,
+	 #springboard li:nth-child(3):after,
+	 #springboard li:nth-child(6):after,
+	 #springboard li:nth-child(10):after,
+	 #springboard li:nth-child(12):after {
+	    height: 1px;
+	    width: 100%;
+	    top: 68px;
+	    left: 0%;
+	    background: #ffffff; /* Old browsers */
+	    background: -moz-linear-gradient(left,  #ffffff 0%, #eeeeee 20%, #eeeeee 80%, #ffffff 100%); /* FF3.6+ */
+	    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(20%,#eeeeee), color-stop(80%,#eeeeee), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+	    background: -webkit-linear-gradient(left,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+	    background: -o-linear-gradient(left,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Opera 11.10+ */
+	    background: -ms-linear-gradient(left,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* IE10+ */
+	    background: linear-gradient(to right,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* W3C */
+	    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */ }	
+	 #springboard li:nth-child(3):after { top: 130px; }
+	 #springboard li:nth-child(6):after { top: 192px; }
+	 #springboard li:nth-child(10):after { top: 257px; }
+	 #springboard li:nth-child(12):after { top: 320px; }
+	 #springboard li:last-child:after { display: none } 
+}
+@media only screen and (min-width: 600px) and (orientation: portrait) {
+
+	/* ----- Search Box ----- */
+	
+	#search {
+		width: 50%;
+		position: absolute;
+		margin: 5px 0 0;
+		top: 3px;
+		right: 10px; }
+	#header {
+		height: 65px; }	
+	#header a {
+		margin-top: 5px; }
+		
+	/* ----- Springboard icons ----- */	
+	
+	#springboard {
+		padding: 20px 0; }
+	#springboard li {
+		float: left;
+		width: 33%;
+		margin: 0 0 25px;}
+	#springboard li:nth-child(3n+1) {	
+		clear: both; }
+	#springboard li:nth-child(3n+1) a {
+		margin-left: 35px; }
+	#springboard li a {
+		font-size: 22px; }
+		
+	 /* ----- Stripe maker ----- */
+	 
+	 #springboard li:nth-child(1):after,
+	 #springboard li:nth-child(3):after {
+		 width: 1px;
+		 height: 100%;
+		 left: 32%;
+		 top: 0;
+		 background: #ffffff; /* Old browsers */
+		 background: -moz-linear-gradient(top,  #ffffff 0%, #eeeeee 20%, #eeeeee 80%, #ffffff 100%); /* FF3.6+ */
+		 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(20%,#eeeeee), color-stop(80%,#eeeeee), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+		 background: -webkit-linear-gradient(top,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+		 background: -o-linear-gradient(top,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Opera 11.10+ */
+		 background: -ms-linear-gradient(top,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* IE10+ */
+		 background: linear-gradient(to bottom,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* W3C */
+		 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */ }		
+	 #springboard li:nth-child(3):after {
+		 left: 63%;
+	 }	
+	 #springboard li:nth-child(2):after,
+	 #springboard li:nth-child(4):after,
+	 #springboard li:nth-child(6):after {
+	    height: 1px;
+	    width: 100%;
+	    top: 90px;
+	    left: 0%;
+	    background: #ffffff; /* Old browsers */
+	    background: -moz-linear-gradient(left,  #ffffff 0%, #eeeeee 20%, #eeeeee 80%, #ffffff 100%); /* FF3.6+ */
+	    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(20%,#eeeeee), color-stop(80%,#eeeeee), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+	    background: -webkit-linear-gradient(left,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+	    background: -o-linear-gradient(left,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Opera 11.10+ */
+	    background: -ms-linear-gradient(left,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* IE10+ */
+	    background: linear-gradient(to right,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* W3C */
+	    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */ }	
+	 #springboard li:nth-child(4):after { top: 162px; }
+	 #springboard li:nth-child(6):after { top: 237px; }
+}
+@media only screen and (min-width: 769px) and (orientation: landscape) {
+
+	/* ----- Search Box ----- */
+	
+	#search {
+		width: 50%;
+		position: absolute;
+		margin: 5px 0 0;
+		top: 3px;
+		right: 10px; }
+	#header {
+		height: 65px; }	
+	#header a {
+		margin-top: 5px; }
+		
+	/* ----- Springboard icons ----- */	
+	
+	#springboard {
+		padding: 20px 0; }
+	#springboard li {
+		float: left;
+		width: 25%;
+		margin: 0 0 25px; }
+	#springboard li a {
+		font-size: 22px; }
+	#springboard li:nth-child(4n+1) {	
+		clear: both; }
+	#springboard li:nth-child(4n+1) a {
+		margin-left: 35px; }
+		
+	 /* ----- Stripe maker ----- */
+	 
+	 #springboard li:nth-child(1):after,
+	 #springboard li:nth-child(2):after,
+	 #springboard li:nth-child(3):after,
+	 #springboard li:nth-child(5):after {
+		 width: 1px;
+		 height: 100%;
+		 left: 23%;
+		 top: 0;
+		 background: #ffffff; /* Old browsers */
+		 background: -moz-linear-gradient(top,  #ffffff 0%, #eeeeee 20%, #eeeeee 80%, #ffffff 100%); /* FF3.6+ */
+		 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(20%,#eeeeee), color-stop(80%,#eeeeee), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+		 background: -webkit-linear-gradient(top,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+		 background: -o-linear-gradient(top,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Opera 11.10+ */
+		 background: -ms-linear-gradient(top,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* IE10+ */
+		 background: linear-gradient(to bottom,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* W3C */
+		 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */ }			
+	 #springboard li:nth-child(2):after { left: 48%; }
+	 #springboard li:nth-child(3):after { left: 73%; }
+	 
+	 #springboard li:nth-child(4):after,
+	 #springboard li:nth-child(8):after,
+	 #springboard li:nth-child(12):after {
+	    height: 1px;
+	    width: 100%;
+	    top: 89px;
+	    left: 0%;
+	    background: #ffffff; /* Old browsers */
+	    background: -moz-linear-gradient(left,  #ffffff 0%, #eeeeee 20%, #eeeeee 80%, #ffffff 100%); /* FF3.6+ */
+	    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(20%,#eeeeee), color-stop(80%,#eeeeee), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+	    background: -webkit-linear-gradient(left,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+	    background: -o-linear-gradient(left,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* Opera 11.10+ */
+	    background: -ms-linear-gradient(left,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* IE10+ */
+	    background: linear-gradient(to right,  #ffffff 0%,#eeeeee 20%,#eeeeee 80%,#ffffff 100%); /* W3C */
+	    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */ }	
+	 #springboard li:nth-child(8):after { top: 166px; }
+	 #springboard li:nth-child(12):after { top: 192px; }
+}
+/*@media only screen and (min-width: 992px) {	
+}
+@media only screen and (min-width: 1382px) {
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+}
+*/
+ 
+</style>
+	
 </head>
+
 <body>
 
-<div id="mobileHeader">
-    <div id="logo">
-        <a data-analytics="/global/hn/logo" href="/mobileuw">
-            <img class="headerImg1" src="http://www.washington.edu/static/mobile/image/logo-home-new.png" width="232" alt="UW Logo">
-        </a>
-        <img id="searchicon" class="headerImg2" src="http://www.washington.edu/static/mobile/image/search.png" width="26" alt="Searchbox" data-analytics="search-trigger" />
-        <img id="listicon" class="headerImg3" src="http://www.washington.edu/static/mobile/image/link-list.png" width="26" alt="Links Dropdown" data-analytics="dashboard-trigger" />
-    </div>
-  <div id="top-nav">
-    <ul>
-      <li><a href="http://www.washington.edu/" title="UW Homepage" data-analytics="/global/hn/home">Home</a></li>
-      <li><a title="Information unique to you, all in one place" data-analytics="/global/hn/news" href="/news/">News</a></li>
-      <li><a href="http://www.washington.edu/home/peopledir/" data-analytics="/global/hn/directory" title="Phone and postal directories for faculty, staff and students">Directories</a></li>
-      <li><a href="http://www.washington.edu/mobile/calendar" title="What's going on around campus?  Find out here." data-analytics="/global/hn/calendar">Calendar</a></li>
-      <li><a href="http://uwashington.worldcat.org/m/" title="A wealth of information at your fingertips" data-analytics="/global/hn/libraries">Libraries</a></li>
-      <li><a href="http://www.washington.edu/maps/" title="Find your way with these map tools" data-analytics="/global/hn/maps">Maps</a></li>
-      <li><a title="Athletics" data-analytics="/global/hn/sports" href="http://www.gohuskies.com">Athletics</a></li>
-      <li><a href="http://depts.washington.edu/newscomm/photos/" title="Scenes from the campus community" data-analytics="/global/hn/commphotos">Photos</a></li>
-      <li><a title="My UW" data-analytics="/global/hn/myuw" href="http://myuw.washington.edu">MyUW</a></li>
-    </ul>
-  </div>
-  <div id="search">
-    <form class="searchform" action="http://www.washington.edu/search" id="searchbox_008816504494047979142:bpbdkw8tbqc" name="form1">
-      <div class="wfield">
-        <input value="008816504494047979142:bpbdkw8tbqc" name="cx" type="hidden">
-        <input value="FORID:0" name="cof" type="hidden">
-        <input class="wTextInput" placeholder="Search the UW" title="Search the UW" name="q" type="text">
-      </div>
-      <input data-analytics="/global/hn/search-action" value="Go" name="sa" class="formbutton" type="submit">
-    </form>
-  </div>
-</div>
-
-  <div role="main" id="springboard-container" class="container-fluid">
-
-<div class="row-fluid" >
-
-  <div class="span6"> 
-  
-  <div class="springboard-button">
-    <a title="People Directory" href="http://www.washington.edu/home/peopledir/"><img src="./images/directory.png" alt=""/>  </a> </div>
-  </div>
-  
-  
-  <div class="span6">  
-    <div class="springboard-button">
-
-  <a title="UW Athletics" href="http://m.gohuskies.com"><img src="./images/athletics.png" alt="" /> </a>
-    </div>
-  
-  </div>
-
-  
-<div class="row-fluid" >
-
-
-  <div class="span6">     <div class="springboard-button">
- <a title="UW Maps" href="http://www.washington.edu/maps/"><img src="./images/maps.png" alt=""/></a> </div>
-    </div>
-
-
-  <div class="span6">     <div class="springboard-button">
-<a title="Courses" href="//depts.washington.edu/mobileuw/courses/"> <img src="./images/courses.png" alt=""/> </a></div> </div>
-  
-</div>
-  
-  
-<div class="row-fluid" >
-  
-  <div class="span6">     <div class="springboard-button">
-<a title="UW Today" href="http://www.washington.edu/news/"><img src="./images/news_central.gif" alt="" alt=""/></a> </div></div>
-  <div class="span6">    <div class="springboard-button">
- <a title="UW Calendar" href="http://www.washington.edu/mobile/calendar/"> <img src="./images/calendar.png"/></a> </div>
- </div>
-
-  </div>
-
-<div class="row-fluid" >
-
-
-    <div class="span6">      
-        <div class="springboard-button">
-            <a title="UW Libraries" href="http://uwashington.worldcat.org/m/"><img src="./images/libraries.png" alt=""/></a>
-        </div>
-    </div>
-
-
-    <div class="span6"> 
-        <div class="springboard-button">
-            <a title="IT Connect" href="http://www.washington.edu/itconnect/m"><img src="./images/itconnect.png" alt=""/>  </a>
-        </div>
-</div>
-<!-- end row -->
-
-
-<div class="row-fluid" >
-    <div class="span6">
-        <div class="springboard-button">
-            <a title="Youtube"  href="youtube.html"><img src="./images/media.png" alt=""/> </a>    
-      </div>
-</div>
-
-</div>
-
-<footer>
-</footer>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>
-<script src="./js/common.js"></script>
+	<div id="header">
+		<a href="#home"></a>
+	</div>
+	<div id="spacing">
+	    	<div id="search">
+	    	    	<form role="search" class="main-search activate" action="http://www.washington.edu/search" id="searchbox_008816504494047979142:bpbdkw8tbqc" name="form1">
+	    	    		<span class="wfield">
+	    	    			<input value="008816504494047979142:bpbdkw8tbqc" name="cx" type="hidden">
+	    	    			<input value="FORID:0" name="cof" type="hidden">
+	    	      <label for="q" class="hide">Search the UW</label>
+	    	    			<input id="q" class="wTextInput" placeholder="Search the UW" title="Search the UW" name="q" type="text">
+	    	    			<input value="Go" name="sa" class="formbutton" type="submit">
+	    	    		</span>
+	    	    	</form>	
+	    	</div>
+	    	<ul id="springboard">
+	    	    	<li><a href="http://www.uw.edu/news">UW Today</a></li>
+	    	    	<li><a href="http://www.uw.edu">UW Home</a></li>
+	    	    	<li><a href="http://www.uw.edu/discover/visit/uw-events/">Calendar</a></li>
+	    	    	<li><a href="http://myuw.washington.edu/">MyUW</a></li>
+	    	    	<li><a href="http://www.washington.edu/home/peopledir/">Directory</a></li>
+	    	    	<li><a href="http://depts.washington.edu/mobileuw/youtube.html">Videos</a></li>
+	    	    	<li><a href="http://uwashington.worldcat.org/m/">Libraries</a></li>
+	    	    	<li><a href="http://m.gohuskies.com/">Athletics</a></li>
+	    	    	<li><a href="http://www.washington.edu/maps/">Maps</a></li>
+	    	    	<li><a href="http://www.washington.edu/itconnect/m/">IT Connect</a></li>
+	    	</ul>
+	  </div>
 
 </body>
+
 </html>
